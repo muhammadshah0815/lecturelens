@@ -1,0 +1,66 @@
+@import './tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 112.5%; /* 18px root: readable on a classroom projector */
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  /* One visible focus style everywhere, keyboard only. */
+  :focus-visible {
+    outline: 3px solid rgb(var(--focus));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: rgb(var(--teal-soft));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-card border border-line bg-surface shadow-card;
+  }
+  .chip {
+    @apply inline-flex min-h-[2.75rem] items-center gap-2 rounded-chip border border-line bg-surface px-4 py-2
+      text-left text-[0.95rem] font-medium text-ink-soft transition-colors
+      hover:border-teal hover:bg-teal-tint hover:text-ink;
+  }
+  .btn-primary {
+    @apply inline-flex min-h-[3rem] items-center justify-center gap-2 rounded-xl bg-teal px-5 font-semibold text-white
+      transition-colors hover:bg-teal-strong;
+  }
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.08em] text-ink-muted;
+  }
+}
+
+/* Instructor "speaking" bars in the simulated player. */
+.ll-talk i {
+  display: block;
+  width: 3px;
+  height: 4px;
+  border-radius: 1px;
+  background: rgb(var(--teal));
+}
+.ll-talk.is-on i {
+  animation: ll-talk 0.9s ease-in-out infinite;
+}
+.ll-talk.is-on i:nth-child(2) { animation-delay: 0.15s; }
+.ll-talk.is-on i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes ll-talk {
+  0%, 100% { height: 4px; }
+  50% { height: 12px; }
+}

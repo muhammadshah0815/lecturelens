@@ -1,0 +1,26 @@
+/* LectureLens design tokens. Space-separated RGB so Tailwind can apply alpha. */
+:root {
+  --paper: 247 246 242;       /* #F7F6F2 off-white page */
+  --surface: 255 255 255;     /* cards */
+  --sunken: 239 238 232;      /* wells, player chrome */
+  --line: 226 224 216;        /* hairlines */
+  --line-strong: 196 194 184;
+
+  --ink: 19 35 63;            /* #13233F navy — body text, 14.6:1 on paper */
+  --ink-soft: 52 68 99;       /* #344463 — secondary text */
+  --ink-muted: 84 96 120;     /* #546078 — captions, meta; 5.9:1 on paper */
+
+  --teal: 14 124 134;         /* #0E7C86 accent — 4.9:1 on paper */
+  --teal-strong: 10 94 102;   /* #0A5E66 hover / pressed */
+  --teal-soft: 213 236 237;   /* #D5ECED chip fill */
+  --teal-tint: 236 246 246;   /* #ECF6F6 quiet highlight */
+
+  --amber: 138 82 0;          /* #8A5200 "still stuck" text */
+  --amber-soft: 252 241 220;  /* #FCF1DC */
+
+  --danger: 168 38 38;        /* #A82626 destructive actions */
+  --danger-soft: 251 234 234; /* #FBEAEA */
+
+  --focus: 14 124 134;
+  color-scheme: light;
+}
